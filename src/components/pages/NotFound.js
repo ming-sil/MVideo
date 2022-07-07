@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mainStyle } from "../../styles/GlobalStyle";
 
-const Wrap = styled.div`
+const Wrap = styled.section`
   width: 100%;
   height: 100vh;
   display: flex;
