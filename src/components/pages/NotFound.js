@@ -14,7 +14,7 @@ const Wrap = styled.section`
 `;
 
 const Image = styled.div`
-  width: 600px;
+  width: 25%;
 `;
 
 const Btn = styled.div`
