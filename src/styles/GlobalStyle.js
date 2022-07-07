@@ -5,7 +5,12 @@ export const mainStyle = {
     bgColor: "#1d1d1d",
     highlightColor: "#ff9900",
     padding: "0 100px",
-    mainColor: "white"
+    mainColor: "white",
+    btnHeight: "60px",
+    btnRadius: "10px",
+    btnPadding: "0 30px",
+    btnFontSize: "20px",
+    btnFontWeight: "600"
 }
 
 export const GlobalStyled = createGlobalStyle`
