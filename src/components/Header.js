@@ -13,6 +13,7 @@ const Wrap = styled.header`
   align-items: center;
   padding: ${mainStyle.padding};
   position: fixed;
+  z-index: 999;
 `;
 
 const LogoMenuWrap = styled.div`
