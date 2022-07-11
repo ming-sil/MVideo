@@ -41,8 +41,10 @@ export const TvPrograms = () => {
         <Wrap>
           {onAir && (
             <>
-              <TvBanner mvData={onAir} />
-              <Contents mvData={onAir} contentsClass="현재방영중" />
+              <TvBanner tvData={onAir} />
+              <Contents tvData={""} contentsClass="인기" />
+              <Contents tvData={onAir} contentsClass="TV 방영중" />
+              <Contents tvData={""} contentsClass="높은 평점" />
             </>
           )}
         </Wrap>

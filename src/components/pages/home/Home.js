@@ -50,8 +50,13 @@ export const Home = () => {
           {(onAir, now) && (
             <>
               <MainBanner tvData={onAir} mvData={now} />
+              <Contents tvData={""} contentsClass="인기 TV프로그램" />
+              <Contents mvData={""} contentsClass="인기 영화" />
               <Contents tvData={onAir} contentsClass="방영중인 TV쇼" />
               <Contents mvData={now} contentsClass="현재상영중 영화" />
+              <Contents mvData={""} contentsClass="개봉 예정 영화" />
+              <Contents tvData={""} contentsClass="높은 평점 TV" />
+              <Contents mvData={""} contentsClass="높은 평점 영화" />
             </>
           )}
         </Wrap>

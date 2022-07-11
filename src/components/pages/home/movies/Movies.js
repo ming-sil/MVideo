@@ -44,6 +44,8 @@ export const Movies = () => {
               <MvBanner mvData={now} />
               <Contents mvData={now} contentsClass="현재상영중" />
               <Contents mvData={""} contentsClass="인기" />
+              <Contents mvData={""} contentsClass="개봉 예정작" />
+              <Contents mvData={""} contentsClass="높은 평점" />
             </>
           )}
         </Wrap>

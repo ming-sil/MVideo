@@ -62,11 +62,11 @@ const Like = styled.div`
   }
 `;
 
-export const TvBanner = ({ mvData }) => {
+export const TvBanner = ({ tvData }) => {
   return (
     <Wrap>
       <Swiper>
-        {mvData.map((movies) => (
+        {tvData.map((movies) => (
           <SwiperSlide
             key={""}
             ClassName="conWrap"
