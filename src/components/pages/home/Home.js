@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styledComponents from "styled-components";
 import { contentsApi } from "../../../api";
+import { Loading } from "../../Loading";
 import { MainBanner } from "./MainBanner";
 
 const Wrap = styledComponents.div`
@@ -9,6 +10,7 @@ const Wrap = styledComponents.div`
 
 export const Home = () => {
   const [onAir, setonAir] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const contentsData = async () => {
@@ -18,6 +20,8 @@ export const Home = () => {
           data: { results: tvOnair },
         } = await contentsApi.tvOnair();
         setonAir(tvOnair);
+
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -26,10 +30,13 @@ export const Home = () => {
   }, []);
   console.log("ㅂㅏㅇㅇㅕㅇㅈㅜㅇ tvㅅㅛ:", onAir);
 
-
   return (
-    <Wrap>
-      <MainBanner />
-    </Wrap>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Wrap>{onAir && <MainBanner conData={onAir} />}</Wrap>
+      )}
+    </>
   );
 };

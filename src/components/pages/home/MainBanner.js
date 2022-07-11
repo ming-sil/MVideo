@@ -58,7 +58,7 @@ const Like = styled.div`
   }
 `;
 
-export const MainBanner = () => {
+export const MainBanner = ({ conData }) => {
   return (
     <Wrap>
       <Swiper>
@@ -69,7 +69,7 @@ export const MainBanner = () => {
             height: "85vh",
             display: "flex",
             alignItems: "center",
-            background: `url(${imgUrl}) no-repeat center / cover`,
+            background: `url(${imgUrl}${conData[0].backdrop_path}) no-repeat center / cover`,
           }}
         >
           <TextWrap>
