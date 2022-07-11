@@ -38,8 +38,8 @@ export const Home = () => {
     };
     contentsData();
   }, []);
-  console.log("ㅂㅏㅇㅇㅕㅇㅈㅜㅇ tvㅅㅛ", onAir);
-  console.log("ㅅㅏㅇㅇㅕㅇㅈㅜㅇ ㅇㅕㅇㅎㅗㅏ", now);
+  console.log("방영중인 TV쇼", onAir);
+  console.log("현재상영중 영화", now);
 
   return (
     <>
@@ -50,8 +50,8 @@ export const Home = () => {
           {(onAir, now) && (
             <>
               <MainBanner tvData={onAir} mvData={now} />
-              <Contents tvData={onAir} contentsClass="방영중 TV쇼" />
-              <Contents mvData={now} contentsClass="상영중 영화" />
+              <Contents tvData={onAir} contentsClass="방영중인 TV쇼" />
+              <Contents mvData={now} contentsClass="현재상영중 영화" />
             </>
           )}
         </Wrap>

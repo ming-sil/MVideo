@@ -46,13 +46,17 @@ const Info = styled.div`
     margin-right: 10px;
   }
   margin-right: 20px;
+  transition: 0.3s;
+  &:hover {
+    background-color: white;
+    color: ${mainStyle.highlightColor};
+  }
 `;
 
 const Like = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   svg {
     margin-right: 10px;
   }
