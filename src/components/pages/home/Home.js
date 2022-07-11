@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styledComponents from "styled-components";
 import { contentsApi } from "../../../api";
 import { Loading } from "../../Loading";
+import { Contents } from "./Contents";
 import { MainBanner } from "./MainBanner";
 
 const Wrap = styledComponents.div`
@@ -46,7 +47,13 @@ export const Home = () => {
         <Loading />
       ) : (
         <Wrap>
-          {(onAir, now) && <MainBanner tvData={onAir} mvData={now} />}
+          {(onAir, now) && (
+            <>
+              <MainBanner tvData={onAir} mvData={now} />
+              <Contents tvData={onAir} contentsClass="방영중 TV쇼" />
+              <Contents mvData={now} contentsClass="상영중 영화" />
+            </>
+          )}
         </Wrap>
       )}
     </>
