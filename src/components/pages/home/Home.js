@@ -10,6 +10,8 @@ const Wrap = styledComponents.div`
 
 export const Home = () => {
   const [onAir, setonAir] = useState();
+  const [now, setNow] = useState();
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,6 +23,13 @@ export const Home = () => {
         } = await contentsApi.tvOnair();
         setonAir(tvOnair);
 
+        // ㅅㅏㅇㅇㅕㅇㅈㅜㅇ ㅇㅕㅇㅎㅗㅏ
+        const {
+          data: { results: mNowPlaying },
+        } = await contentsApi.mNowPlaying();
+        setNow(mNowPlaying);
+
+        // ㄹㅗㄷㅣㅇ ㄲㅡㅌㄴㅐㄱㅣ
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -28,14 +37,17 @@ export const Home = () => {
     };
     contentsData();
   }, []);
-  console.log("ㅂㅏㅇㅇㅕㅇㅈㅜㅇ tvㅅㅛ:", onAir);
+  console.log("ㅂㅏㅇㅇㅕㅇㅈㅜㅇ tvㅅㅛ", onAir);
+  console.log("ㅅㅏㅇㅇㅕㅇㅈㅜㅇ ㅇㅕㅇㅎㅗㅏ", now);
 
   return (
     <>
       {loading ? (
         <Loading />
       ) : (
-        <Wrap>{onAir && <MainBanner conData={onAir} />}</Wrap>
+        <Wrap>
+          {(onAir, now) && <MainBanner tvData={onAir} mvData={now} />}
+        </Wrap>
       )}
     </>
   );

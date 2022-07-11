@@ -58,7 +58,7 @@ const Like = styled.div`
   }
 `;
 
-export const MainBanner = ({ conData }) => {
+export const MainBanner = ({ tvData, mvData }) => {
   return (
     <Wrap>
       <Swiper>
@@ -69,16 +69,64 @@ export const MainBanner = ({ conData }) => {
             height: "85vh",
             display: "flex",
             alignItems: "center",
-            background: `url(${imgUrl}${conData[0].backdrop_path}) no-repeat center / cover`,
+            background: `url(${imgUrl}${mvData[0].backdrop_path}) no-repeat center / cover`,
           }}
         >
           <TextWrap>
-            <Title>{"컨텐츠 제목"}</Title>
-            <Desc>
-              {
-                "컨텐츠 설명:아메리카(소치틀 고메즈)는 어느 날 멀티버스 사이를 오갈 수 있는 힘에 눈을 뜨지만 완전히 제어하지 못한다. 정체불명의 악마가 아메리카를 죽이려 하자 다른 우주의 스트레인지가 이를 막아보지만..."
-              }
-            </Desc>
+            <Title>{mvData[0].title}</Title>
+            <Desc>{mvData[0].overview.slice(0, 150) + "..."}</Desc>
+            <IconWrap>
+              <Info>
+                <FontAwesomeIcon icon={faCircleInfo} />
+                <span>상세정보 보기</span>
+              </Info>
+              <Like>
+                <FontAwesomeIcon icon={faHeart} />
+                찜하기
+              </Like>
+            </IconWrap>
+          </TextWrap>
+        </SwiperSlide>
+
+        <SwiperSlide
+          ClassName="conWrap"
+          style={{
+            width: "100%",
+            height: "85vh",
+            display: "flex",
+            alignItems: "center",
+            background: `url(${imgUrl}${tvData[0].backdrop_path}) no-repeat center / cover`,
+          }}
+        >
+          <TextWrap>
+            <Title>{tvData[0].name}</Title>
+            <Desc>{tvData[0].overview.slice(0, 150) + "..."}</Desc>
+            <IconWrap>
+              <Info>
+                <FontAwesomeIcon icon={faCircleInfo} />
+                <span>상세정보 보기</span>
+              </Info>
+              <Like>
+                <FontAwesomeIcon icon={faHeart} />
+                찜하기
+              </Like>
+            </IconWrap>
+          </TextWrap>
+        </SwiperSlide>
+
+        <SwiperSlide
+          ClassName="conWrap"
+          style={{
+            width: "100%",
+            height: "85vh",
+            display: "flex",
+            alignItems: "center",
+            background: `url(${imgUrl}${mvData[1].backdrop_path}) no-repeat center / cover`,
+          }}
+        >
+          <TextWrap>
+            <Title>{mvData[1].title}</Title>
+            <Desc>{mvData[1].overview.slice(0, 150) + "..."}</Desc>
             <IconWrap>
               <Info>
                 <FontAwesomeIcon icon={faCircleInfo} />
