@@ -66,21 +66,21 @@ export const TvBanner = ({ tvData }) => {
   return (
     <Wrap>
       <Swiper>
-        {tvData.map((movies) => (
+        {tvData.map((tvShow) => (
           <SwiperSlide
-            key={""}
+            key={tvShow.id}
             ClassName="conWrap"
             style={{
               width: "100%",
               height: "85vh",
               display: "flex",
               alignItems: "center",
-              background: `url(${imgUrl}${movies.backdrop_path}) no-repeat center / cover`,
+              background: `url(${imgUrl}${tvShow.backdrop_path}) no-repeat center / cover`,
             }}
           >
             <TextWrap>
-              <Title>{movies.name}</Title>
-              <Desc>{movies.overview.slice(0, 150) + "..."}</Desc>
+              <Title>{tvShow.name}</Title>
+              <Desc>{tvShow.overview.slice(0, 150) + "..."}</Desc>
               <IconWrap>
                 <Info>
                   <FontAwesomeIcon icon={faCircleInfo} />

@@ -1,22 +1,28 @@
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { imgUrl } from "../../constant/constant";
+import { imgUrl } from "../../../constant/constant";
 
 const Wrap = styled.div``;
 
-const Title = styled.div``;
+const Title = styled.div`
+  font-size: 20px;
+`;
 
 const Poster = styled.div`
   width: 100%;
+  height: 200px;
 `;
 
-export const Contents = ({ tvData, mvData, contentsClass }) => {
+const Name = styled.h3``;
+
+export const TvContents = ({ tvData, contentsClass }) => {
+  console.log(tvData);
   return (
     <Wrap>
       <Title>{contentsClass}</Title>
 
-      {/* <Swiper>
+      <Swiper>
         {tvData.map((tvShow) => (
           <SwiperSlide key={tvShow.id}>
             <Poster
@@ -24,23 +30,10 @@ export const Contents = ({ tvData, mvData, contentsClass }) => {
                 background: `url(${imgUrl}${tvShow.poster_path}) no-repeat center / cover`,
               }}
             />
-            <Title>{tvShow.name}</Title>
+            <Name>{tvShow.name}</Name>
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <Swiper>
-        {mvData.map((movie) => (
-          <SwiperSlide key={movie.id}>
-            <Poster
-              style={{
-                background: `url(${imgUrl}${movie.backdrop_path}) no-repeat center / cover`,
-              }}
-            />
-            <Title>{movie.name}</Title>
-          </SwiperSlide>
-        ))}
-      </Swiper> */}
     </Wrap>
   );
 };

@@ -2,28 +2,39 @@ import { useEffect, useState } from "react";
 import styledComponents from "styled-components";
 import { contentsApi } from "../../../../api";
 import { Loading } from "../../../Loading";
-import { Contents } from "../Contents";
 import { TvBanner } from "./TvBanner";
+import { TvContents } from "./TvContents";
 
-const Wrap = styledComponents.div`
-
-`;
+const Wrap = styledComponents.div``;
 
 export const TvPrograms = () => {
   const [onAir, setonAir] = useState();
+  const [tvPopular, setTvPopular] = useState();
+  const [tvTopRated, setTvTopRated] = useState();
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const contentsData = async () => {
       try {
-        // ㅂㅏㅇㅇㅕㅇㅈㅜㅇ tvㅅㅛ
+        // 방영중
         const {
           data: { results: tvOnair },
         } = await contentsApi.tvOnair();
         setonAir(tvOnair);
+        // 인기
+        const {
+          data: { results: tvPopular },
+        } = await contentsApi.tvPopular();
+        setTvPopular(tvPopular);
+        // 높은평점
+        const {
+          data: { results: tvTopRated },
+        } = await contentsApi.tvTopRated();
 
-        // ㄹㅗㄷㅣㅇ ㄲㅡㅌㄴㅐㄱㅣ
+        setTvTopRated(tvTopRated);
+
+        // 로딩
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -42,9 +53,9 @@ export const TvPrograms = () => {
           {onAir && (
             <>
               <TvBanner tvData={onAir} />
-              <Contents tvData={""} contentsClass="인기" />
-              <Contents tvData={onAir} contentsClass="TV 방영중" />
-              <Contents tvData={""} contentsClass="높은 평점" />
+              <TvContents tvData={tvPopular} contentsClass="인기" />
+              <TvContents tvData={onAir} contentsClass="TV 방영중" />
+              <TvContents tvData={tvTopRated} contentsClass="높은 평점" />
             </>
           )}
         </Wrap>

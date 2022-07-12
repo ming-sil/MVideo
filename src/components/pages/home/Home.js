@@ -10,27 +10,60 @@ const Wrap = styledComponents.div`
 `;
 
 export const Home = () => {
+  // 인기
+  const [tvPopular, setTvPopulaar] = useState();
+  const [mPopular, setMPopular] = useState();
+  // 방영,상영중
   const [onAir, setonAir] = useState();
   const [now, setNow] = useState();
+  // 개봉예정
+  const [upComming, setUpComming] = useState();
+  // 높은평점
+  const [tvTopRated, setTvTopRated] = useState();
+  const [mTopRated, setMTopRated] = useState();
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const contentsData = async () => {
       try {
-        // ㅂㅏㅇㅇㅕㅇㅈㅜㅇ tvㅅㅛ
+        // 인기
+        const {
+          data: { results: tvPopular },
+        } = await contentsApi.tvPopular();
+        setTvPopulaar(tvPopular);
+        const {
+          data: { results: mPopular },
+        } = await contentsApi.mPopular();
+        setMPopular(mPopular);
+
+        // 방영,상영중
         const {
           data: { results: tvOnair },
         } = await contentsApi.tvOnair();
         setonAir(tvOnair);
-
-        // ㅅㅏㅇㅇㅕㅇㅈㅜㅇ ㅇㅕㅇㅎㅗㅏ
         const {
           data: { results: mNowPlaying },
         } = await contentsApi.mNowPlaying();
         setNow(mNowPlaying);
 
-        // ㄹㅗㄷㅣㅇ ㄲㅡㅌㄴㅐㄱㅣ
+        // 개봉예정
+        const {
+          data: { results: mUpComming },
+        } = await contentsApi.mUpComming();
+        setUpComming(mUpComming);
+
+        // 높은평점
+        const {
+          data: { results: tvTopRated },
+        } = await contentsApi.tvTopRated();
+        setTvTopRated(tvTopRated);
+        const {
+          data: { results: mTopRated },
+        } = await contentsApi.mTopRated();
+        setMTopRated(mTopRated);
+
+        // 로딩
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -38,8 +71,6 @@ export const Home = () => {
     };
     contentsData();
   }, []);
-  console.log("방영중인 TV쇼", onAir);
-  console.log("현재상영중 영화", now);
 
   return (
     <>
@@ -47,16 +78,22 @@ export const Home = () => {
         <Loading />
       ) : (
         <Wrap>
-          {(onAir, now) && (
+          {(onAir,
+          now,
+          tvPopular,
+          mPopular,
+          upComming,
+          tvTopRated,
+          mTopRated) && (
             <>
               <MainBanner tvData={onAir} mvData={now} />
-              <Contents tvData={""} contentsClass="인기 TV프로그램" />
-              <Contents mvData={""} contentsClass="인기 영화" />
+              <Contents tvData={tvPopular} contentsClass="인기 TV프로그램" />
+              <Contents mvData={mPopular} contentsClass="인기 영화" />
               <Contents tvData={onAir} contentsClass="방영중인 TV쇼" />
               <Contents mvData={now} contentsClass="현재상영중 영화" />
-              <Contents mvData={""} contentsClass="개봉 예정 영화" />
-              <Contents tvData={""} contentsClass="높은 평점 TV" />
-              <Contents mvData={""} contentsClass="높은 평점 영화" />
+              <Contents mvData={upComming} contentsClass="개봉 예정 영화" />
+              <Contents tvData={tvTopRated} contentsClass="높은 평점 TV" />
+              <Contents mvData={mTopRated} contentsClass="높은 평점 영화" />
             </>
           )}
         </Wrap>
