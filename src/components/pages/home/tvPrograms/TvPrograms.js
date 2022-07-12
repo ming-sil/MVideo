@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import styledComponents from "styled-components";
+import styled from "styled-components";
 import { contentsApi } from "../../../../api";
 import { Loading } from "../../../Loading";
 import { TvBanner } from "./TvBanner";
 import { TvContents } from "./TvContents";
 
-const Wrap = styledComponents.div``;
+const Wrap = styled.div``;
 
 export const TvPrograms = () => {
   const [onAir, setonAir] = useState();

@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import styledComponents from "styled-components";
 import { contentsApi } from "../../../api";
 import { Loading } from "../../Loading";
-import { Contents } from "./Contents";
 import { MainBanner } from "./MainBanner";
+import { MovieContents } from "./movies/MovieContents";
+import { TvContents } from "./tvPrograms/TvContents";
 
 const Wrap = styledComponents.div`
 
@@ -87,13 +88,19 @@ export const Home = () => {
           mTopRated) && (
             <>
               <MainBanner tvData={onAir} mvData={now} />
-              <Contents tvData={tvPopular} contentsClass="인기 TV프로그램" />
-              <Contents mvData={mPopular} contentsClass="인기 영화" />
-              <Contents tvData={onAir} contentsClass="방영중인 TV쇼" />
-              <Contents mvData={now} contentsClass="현재상영중 영화" />
-              <Contents mvData={upComming} contentsClass="개봉 예정 영화" />
-              <Contents tvData={tvTopRated} contentsClass="높은 평점 TV" />
-              <Contents mvData={mTopRated} contentsClass="높은 평점 영화" />
+              <TvContents tvData={tvPopular} contentsClass="인기 TV프로그램" />
+              <MovieContents mvData={mPopular} contentsClass="인기 영화" />
+              <TvContents tvData={onAir} contentsClass="방영중인 TV쇼" />
+              <MovieContents mvData={now} contentsClass="현재상영중 영화" />
+              <MovieContents
+                mvData={upComming}
+                contentsClass="개봉 예정 영화"
+              />
+              <TvContents tvData={tvTopRated} contentsClass="높은 평점 TV" />
+              <MovieContents
+                mvData={mTopRated}
+                contentsClass="높은 평점 영화"
+              />
             </>
           )}
         </Wrap>

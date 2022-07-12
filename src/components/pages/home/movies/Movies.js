@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import styledComponents from "styled-components";
+import styled from "styled-components";
 import { contentsApi } from "../../../../api";
 import { Loading } from "../../../Loading";
 import { MovieContents } from "./MovieContents";
 import { MvBanner } from "./MvBanner";
 
-const Wrap = styledComponents.div`
-
-`;
+const Wrap = styled.div``;
 
 export const Movies = () => {
   const [now, setNow] = useState();
