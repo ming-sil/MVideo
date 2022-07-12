@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/effect-creative";
+import { EffectCreative } from "swiper";
 import styled from "styled-components";
 import { mainStyle } from "../../../../styles/GlobalStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -65,7 +67,20 @@ const Like = styled.div`
 export const TvBanner = ({ tvData }) => {
   return (
     <Wrap>
-      <Swiper>
+      <Swiper
+        effect={"creative"}
+        creativeEffect={{
+          prev: {
+            shadow: true,
+            translate: [0, 0, -400],
+          },
+          next: {
+            translate: ["100%", 0, 0],
+          },
+        }}
+        modules={[EffectCreative]}
+        className="mySwiper"
+      >
         {tvData.map((tvShow) => (
           <SwiperSlide
             key={tvShow.id}

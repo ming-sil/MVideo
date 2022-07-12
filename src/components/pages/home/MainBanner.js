@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { Autoplay, EffectCards } from "swiper";
+import "swiper/css/effect-cards";
 import styled from "styled-components";
 import { mainStyle } from "../../../styles/GlobalStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -65,7 +67,17 @@ const Like = styled.div`
 export const MainBanner = ({ tvData, mvData }) => {
   return (
     <Wrap>
-      <Swiper>
+      <Swiper
+        effect={"cards"}
+        grabCursor={true}
+        modules={[EffectCards, Autoplay]}
+        className="mySwiper"
+        loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+      >
         <SwiperSlide
           ClassName="conWrap"
           style={{
