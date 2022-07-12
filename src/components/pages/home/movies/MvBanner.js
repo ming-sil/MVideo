@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/effect-creative";
+import { EffectCreative } from "swiper";
 import styled from "styled-components";
 import { mainStyle } from "../../../../styles/GlobalStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -65,34 +67,54 @@ const Like = styled.div`
 export const MvBanner = ({ mvData }) => {
   return (
     <Wrap>
-      <Swiper>
-    {mvData.map((movies) => (
-                <SwiperSlide key={""}
-                ClassName="conWrap"
-                style={{
-                  width: "100%",
-                  height: "85vh",
-                  display: "flex",
-                  alignItems: "center",
-                  background: `url(${imgUrl}${movies.backdrop_path}) no-repeat center / cover`,
-                }}
-              >
-                <TextWrap>
-                  <Title>{movies.title}</Title>
-                  <Desc>{movies.overview.slice(0, 150) + "..."}</Desc>
-                  <IconWrap>
-                    <Info>
-                      <FontAwesomeIcon icon={faCircleInfo} />
-                      <span>상세정보 보기</span>
-                    </Info>
-                    <Like>
-                      <FontAwesomeIcon icon={faHeart} />
-                      찜하기
-                    </Like>
-                  </IconWrap>
-                </TextWrap>
-              </SwiperSlide>
-    ))}
+      <Swiper
+        effect={"creative"}
+        creativeEffect={{
+          prev: {
+            shadow: true,
+            translate: [0, 0, -400],
+          },
+          next: {
+            translate: ["100%", 0, 0],
+          },
+        }}
+        grabCursor={true}
+        loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[EffectCreative]}
+        className="mySwiper"
+      >
+        {mvData.map((movies) => (
+          <SwiperSlide
+            key={movies.id}
+            ClassName="conWrap"
+            style={{
+              width: "100%",
+              height: "85vh",
+              display: "flex",
+              alignItems: "center",
+              background: `url(${imgUrl}${movies.backdrop_path}) no-repeat center / cover`,
+            }}
+          >
+            <TextWrap>
+              <Title>{movies.title}</Title>
+              <Desc>{movies.overview.slice(0, 150) + "..."}</Desc>
+              <IconWrap>
+                <Info>
+                  <FontAwesomeIcon icon={faCircleInfo} />
+                  <span>상세정보 보기</span>
+                </Info>
+                <Like>
+                  <FontAwesomeIcon icon={faHeart} />
+                  찜하기
+                </Like>
+              </IconWrap>
+            </TextWrap>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </Wrap>
   );

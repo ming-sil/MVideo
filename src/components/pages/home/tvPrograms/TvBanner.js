@@ -78,6 +78,12 @@ export const TvBanner = ({ tvData }) => {
             translate: ["100%", 0, 0],
           },
         }}
+        grabCursor={true}
+        loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         modules={[EffectCreative]}
         className="mySwiper"
       >
