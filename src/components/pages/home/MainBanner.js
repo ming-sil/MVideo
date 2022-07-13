@@ -74,7 +74,7 @@ export const MainBanner = ({ tvData, mvData }) => {
         className="mySwiper"
         loop={true}
         autoplay={{
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         }}
       >
