@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styledComponents from "styled-components";
 import { contentsApi } from "../../../api";
 import { Loading } from "../../Loading";
+import { DetailPopup } from "./detail/DetailPopup";
 import { MainBanner } from "./MainBanner";
 import { MovieContents } from "./movies/MovieContents";
 import { TvContents } from "./tvPrograms/TvContents";
@@ -103,6 +104,7 @@ export const Home = () => {
               />
             </>
           )}
+          <DetailPopup />
         </Wrap>
       )}
     </>
