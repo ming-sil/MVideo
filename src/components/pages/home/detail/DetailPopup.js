@@ -2,27 +2,25 @@ import styled from "styled-components";
 import { mainStyle } from "../../../../styles/GlobalStyle";
 
 const Wrap = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* backdrop-filter: blur(3px); */
+  width: 70%;
+  height: 100vh;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 998;
+  overflow-y: scroll;
+  position: fixed;
 `;
 
 const PopUp = styled.div`
-  width: 70%;
-  height: 500vh;
+  width: 100%;
   margin: 80px 0;
   position: relative;
   padding: 100px 0;
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  overflow-y: scroll;
 `;
 
 const ExitBtn = styled.div`
@@ -45,24 +43,32 @@ const ExitBtn = styled.div`
 
 const Section1 = styled.div`
   display: flex;
+  justify-content: space-between;
+  position: relative;
 `;
 
 const TextWrap = styled.div`
-  margin-left: 60px;
+  width: 50%;
+  position: relative;
+  padding-left: 60px;
 `;
 
 const TitleWrap = styled.div`
-  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(60px);
+  z-index: 99;
 `;
 
 const Title = styled.div`
   font-size: 60px;
   font-weight: 600;
-  line-height: 40px;
+  line-height: 70px;
   span {
     font-size: 35px;
   }
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 `;
 
 const Tagline = styled.div`
@@ -70,8 +76,8 @@ const Tagline = styled.div`
 `;
 
 const DescWrap = styled.div`
-  margin-top: 20px;
-  width: 40%;
+  margin-top: 210px;
+  width: 100%;
 `;
 
 const Genres = styled.div`
@@ -83,18 +89,31 @@ const Genres = styled.div`
 const Runtime = styled.div`
   font-size: 23px;
   color: ${mainStyle.highlightColor};
+  margin-bottom: 20px;
 `;
 
 const Overview = styled.div`
   font-size: 16px;
+  font-weight: 100;
   opacity: 0.6;
+  margin-bottom: 20px;
+  line-height: 20px;
 `;
 
 const BtnWrap = styled.div`
   display: flex;
+  align-items: center;
 `;
 
-const LikeBtn = styled.div``;
+const LikeBtn = styled.div`
+  width: 30px;
+  svg {
+    stroke: ${mainStyle.mainColor};
+    stroke-width: 20;
+    fill: none;
+  }
+  margin-right: 20px;
+`;
 
 const TrailerBtn = styled.div`
   width: auto;
@@ -106,27 +125,56 @@ const TrailerBtn = styled.div`
   align-items: center;
   border-radius: ${mainStyle.btnRadius};
   svg {
+    width: 15px;
     margin-right: 10px;
     fill: ${mainStyle.mainColor};
+    transition: 0.3s;
   }
   margin-right: 20px;
   transition: 0.3s;
   &:hover {
     background-color: white;
     color: ${mainStyle.highlightColor};
+    svg {
+      fill: ${mainStyle.highlightColor};
+    }
   }
 `;
 
-const ImgWrap = styled.div``;
+const ImgWrap = styled.div`
+  width: 100%;
+  position: relative;
+`;
 
-const MainImg = styled.div``;
+const MainImg = styled.div`
+  position: absolute;
+  top: 0;
+  right: 60px;
+  width: 90%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
 
-const Thumbnails = styled.div``;
+const Thumbnails = styled.div`
+  width: 70%;
+  height: 30%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+`;
 
-const Thumbnail = styled.div``;
+const Thumbnail = styled.div`
+  width: 32%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+`;
 
 const Section2 = styled.div`
-  margin-top: 100px;
+  margin-top: 200px;
+  margin-bottom: 150px;
 `;
 
 const Trailer = styled.div`
@@ -139,9 +187,41 @@ const Section3 = styled.div`
   padding: 0 60px;
 `;
 
-const Recommended = styled.div``;
+const Recommended = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 16px;
+  }
+`;
 
-const RecommendedContents = styled.div``;
+const RecommendedContents = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Mov = styled.div`
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  div {
+    width: 100%;
+    height: 380px;
+    background-color: salmon;
+  }
+  h5 {
+    font-size: 15px;
+    font-weight: 100;
+    margin-top: 5px;
+  }
+`;
 
 export const DetailPopup = () => {
   return (
@@ -156,9 +236,11 @@ export const DetailPopup = () => {
           <TextWrap>
             <TitleWrap>
               <Title>
-                닥스의 우당탕탕 멀티버스~~<span>(2022)</span>
+                닥스의 우당탕탕탕 멀티버스~~<span>(2022)</span>
               </Title>
-              <Tagline>"상상에상상에상상을더해ㅐ서"</Tagline>
+              <Tagline>
+                "상상에상상에상상에상상에상상에상상에상상을더해ㅐ서"
+              </Tagline>
             </TitleWrap>
             <DescWrap>
               <Genres>판타지 | 액션 | 모험 </Genres>
@@ -178,11 +260,15 @@ export const DetailPopup = () => {
                 추격을 받는다."
               </Overview>
               <BtnWrap>
-                <LikeBtn></LikeBtn>
+                <LikeBtn>
+                  <svg viewBox="0 0 512 512">
+                    <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z" />
+                  </svg>
+                </LikeBtn>
                 <TrailerBtn>
                   <svg viewBox="0 0 384 512">
                     <path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z" />
-                  </svg>{" "}
+                  </svg>
                   예고편 재생
                 </TrailerBtn>
               </BtnWrap>
@@ -206,30 +292,25 @@ export const DetailPopup = () => {
         <Section3>
           <Recommended>
             <h3>비슷한 콘텐츠</h3>
-            <div>
-              더보기
-              <svg viewBox="0 0 384 512">
-                <path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z" />
-              </svg>
-            </div>
+            <p>더보기 ▸</p>
           </Recommended>
           <RecommendedContents>
-            <div>
+            <Mov>
               <div />
               <h5>영화제목</h5>
-            </div>
-            <div>
+            </Mov>
+            <Mov>
               <div />
               <h5>영화제목</h5>
-            </div>
-            <div>
+            </Mov>
+            <Mov>
               <div />
               <h5>영화제목</h5>
-            </div>
-            <div>
+            </Mov>
+            <Mov>
               <div />
               <h5>영화제목</h5>
-            </div>
+            </Mov>
           </RecommendedContents>
         </Section3>
       </PopUp>

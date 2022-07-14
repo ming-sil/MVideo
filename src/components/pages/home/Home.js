@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styledComponents from "styled-components";
+import styled from "styled-components";
 import { contentsApi } from "../../../api";
 import { Loading } from "../../Loading";
 import { DetailPopup } from "./detail/DetailPopup";
@@ -7,9 +7,7 @@ import { MainBanner } from "./MainBanner";
 import { MovieContents } from "./movies/MovieContents";
 import { TvContents } from "./tvPrograms/TvContents";
 
-const Wrap = styledComponents.div`
-
-`;
+const Wrap = styled.div``;
 
 export const Home = () => {
   // 인기
@@ -79,33 +77,41 @@ export const Home = () => {
       {loading ? (
         <Loading />
       ) : (
-        <Wrap>
-          {(onAir,
-          now,
-          tvPopular,
-          mPopular,
-          upComming,
-          tvTopRated,
-          mTopRated) && (
-            <>
-              <MainBanner tvData={onAir} mvData={now} />
-              <TvContents tvData={tvPopular} contentsClass="인기 TV프로그램" />
-              <MovieContents mvData={mPopular} contentsClass="인기 영화" />
-              <TvContents tvData={onAir} contentsClass="방영중인 TV쇼" />
-              <MovieContents mvData={now} contentsClass="현재상영중 영화" />
-              <MovieContents
-                mvData={upComming}
-                contentsClass="개봉 예정 영화"
-              />
-              <TvContents tvData={tvTopRated} contentsClass="높은 평점 TV" />
-              <MovieContents
-                mvData={mTopRated}
-                contentsClass="높은 평점 영화"
-              />
-            </>
-          )}
+        <>
+          <Wrap>
+            {onAir &&
+              now &&
+              tvPopular &&
+              mPopular &&
+              upComming &&
+              tvTopRated &&
+              mTopRated && (
+                <>
+                  <MainBanner tvData={onAir} mvData={now} />
+                  <TvContents
+                    tvData={tvPopular}
+                    contentsClass="인기 TV프로그램"
+                  />
+                  <MovieContents mvData={mPopular} contentsClass="인기 영화" />
+                  <TvContents tvData={onAir} contentsClass="방영중인 TV쇼" />
+                  <MovieContents mvData={now} contentsClass="현재상영중 영화" />
+                  <MovieContents
+                    mvData={upComming}
+                    contentsClass="개봉 예정 영화"
+                  />
+                  <TvContents
+                    tvData={tvTopRated}
+                    contentsClass="높은 평점 TV"
+                  />
+                  <MovieContents
+                    mvData={mTopRated}
+                    contentsClass="높은 평점 영화"
+                  />
+                </>
+              )}
+          </Wrap>
           <DetailPopup />
-        </Wrap>
+        </>
       )}
     </>
   );

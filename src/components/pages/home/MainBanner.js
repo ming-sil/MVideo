@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Autoplay, EffectCards } from "swiper";
-import "swiper/css/effect-cards";
+import "swiper/css/effect-creative";
+import { EffectCreative } from "swiper";
 import styled from "styled-components";
 import { mainStyle } from "../../../styles/GlobalStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -68,18 +68,27 @@ export const MainBanner = ({ tvData, mvData }) => {
   return (
     <Wrap>
       <Swiper
-        effect={"cards"}
+        effect={"creative"}
+        creativeEffect={{
+          prev: {
+            shadow: true,
+            translate: [0, 0, -400],
+          },
+          next: {
+            translate: ["100%", 0, 0],
+          },
+        }}
         grabCursor={true}
-        modules={[EffectCards, Autoplay]}
-        className="mySwiper"
         loop={true}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
         }}
+        modules={[EffectCreative]}
+        className="mySwiper"
       >
         <SwiperSlide
-          ClassName="conWrap"
+          className="conWrap"
           style={{
             width: "100%",
             height: "85vh",
@@ -105,7 +114,7 @@ export const MainBanner = ({ tvData, mvData }) => {
         </SwiperSlide>
 
         <SwiperSlide
-          ClassName="conWrap"
+          className="conWrap"
           style={{
             width: "100%",
             height: "85vh",
@@ -131,7 +140,7 @@ export const MainBanner = ({ tvData, mvData }) => {
         </SwiperSlide>
 
         <SwiperSlide
-          ClassName="conWrap"
+          className="conWrap"
           style={{
             width: "100%",
             height: "85vh",

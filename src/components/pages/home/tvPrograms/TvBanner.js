@@ -81,7 +81,7 @@ export const TvBanner = ({ tvData }) => {
         grabCursor={true}
         loop={true}
         autoplay={{
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         modules={[EffectCreative]}
