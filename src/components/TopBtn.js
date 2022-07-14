@@ -10,11 +10,11 @@ const Top = styled.div`
   bottom: 30px;
   right: 30px;
   z-index: 999;
+  cursor: pointer;
 `;
 
 export const TopBtn = () => {
   const handleScroll = () => {
-    console.log("클릭함");
     window.scrollTo({
       top: 0,
       left: 0,
@@ -23,7 +23,7 @@ export const TopBtn = () => {
   };
 
   return (
-    <Top OnClick={handleScroll}>
+    <Top onClick={handleScroll}>
       <FontAwesomeIcon icon={faChevronCircleUp} />
     </Top>
   );

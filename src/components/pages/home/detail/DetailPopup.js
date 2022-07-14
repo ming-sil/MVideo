@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import styled from "styled-components";
 import { mainStyle } from "../../../../styles/GlobalStyle";
 
@@ -226,7 +224,7 @@ const Mov = styled.div`
   }
 `;
 
-export const DetailPopup = () => {
+export const DetailPopup = ({ mDetail, tvDetail, mTrailer, tvTrailer }) => {
   return (
     <Wrap>
       <PopUp>

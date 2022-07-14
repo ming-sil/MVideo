@@ -20,4 +20,10 @@ export const contentsApi = {
   tvPopular: () => api.get("/tv/popular"),
   //개봉예정
   mUpComming: () => api.get("/movie/upcoming"),
+  // 상세
+  mDetail: (id) => api.get(`/movie/${id}`),
+  tvDetail: (id) => api.get(`/tv/${id}`),
+  // 예고편
+  mVideo: (id) => api.get(`/movie/${id}/videos`),
+  tvVideo: (id) => api.get(`/tv/${id}/videos`),
 };
