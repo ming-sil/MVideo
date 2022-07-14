@@ -18,6 +18,8 @@ const Title = styled.div`
 `;
 
 const Con = styled.div`
+  cursor: pointer;
+
   margin-bottom: 20px;
   &:hover {
     img {
@@ -46,6 +48,10 @@ const Name = styled.h3`
 `;
 
 export const TvContents = ({ tvData, contentsClass }) => {
+  const openPopup = () => {
+    console.log("클릭");
+  };
+
   return (
     <Wrap>
       <Title>{contentsClass}</Title>
@@ -58,7 +64,7 @@ export const TvContents = ({ tvData, contentsClass }) => {
       >
         {tvData.map((tvShow) => (
           <SwiperSlide key={tvShow.id}>
-            <Con>
+            <Con onClick={openPopup}>
               <Poster>
                 <img src={`${imgUrl}${tvShow.poster_path}`} />
               </Poster>

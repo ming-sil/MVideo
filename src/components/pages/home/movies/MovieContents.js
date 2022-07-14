@@ -18,6 +18,7 @@ const Title = styled.div`
 `;
 
 const Con = styled.div`
+  cursor: pointer;
   margin-bottom: 20px;
   &:hover {
     img {
@@ -46,6 +47,10 @@ const Name = styled.h3`
 `;
 
 export const MovieContents = ({ mvData, contentsClass }) => {
+  const openPopup = () => {
+    console.log("클릭");
+  };
+
   return (
     <Wrap>
       <Title>{contentsClass}</Title>
@@ -57,7 +62,7 @@ export const MovieContents = ({ mvData, contentsClass }) => {
       >
         {mvData.map((movie) => (
           <SwiperSlide key={movie.id}>
-            <Con>
+            <Con onClick={openPopup}>
               <Poster>
                 <img src={`${imgUrl}${movie.poster_path}`} />
               </Poster>

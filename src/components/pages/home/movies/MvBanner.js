@@ -66,6 +66,10 @@ const Like = styled.div`
 `;
 
 export const MvBanner = ({ mvData }) => {
+  const openPopup = () => {
+    console.log("클릭");
+  };
+
   return (
     <Wrap>
       <Swiper
@@ -104,7 +108,7 @@ export const MvBanner = ({ mvData }) => {
               <Title>{movies.title}</Title>
               <Desc>{movies.overview.slice(0, 150) + "..."}</Desc>
               <IconWrap>
-                <Info>
+                <Info onClick={openPopup}>
                   <FontAwesomeIcon icon={faCircleInfo} />
                   <span>상세정보 보기</span>
                 </Info>

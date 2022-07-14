@@ -66,6 +66,10 @@ const Like = styled.div`
 `;
 
 export const TvBanner = ({ tvData }) => {
+  const openPopup = () => {
+    console.log("클릭");
+  };
+
   return (
     <Wrap>
       <Swiper
@@ -104,7 +108,7 @@ export const TvBanner = ({ tvData }) => {
               <Title>{tvShow.name}</Title>
               <Desc>{tvShow.overview.slice(0, 150) + "..."}</Desc>
               <IconWrap>
-                <Info>
+                <Info onClick={openPopup}>
                   <FontAwesomeIcon icon={faCircleInfo} />
                   <span>상세정보 보기</span>
                 </Info>

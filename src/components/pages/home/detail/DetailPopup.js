@@ -237,7 +237,8 @@ export const DetailPopup = ({ mDetail, tvDetail, mTrailer, tvTrailer }) => {
           <TextWrap>
             <TitleWrap>
               <Title>
-                닥스의 우당탕탕탕 멀티버스~~<span>(2022)</span>
+                {(mDetail && mDetail.title) || (tvDetail && tvDetail.name)}
+                <span>(2022)</span>
               </Title>
               <Tagline>
                 "상상에상상에상상에상상에상상에상상에상상을더해ㅐ서"
