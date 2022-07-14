@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { contentsApi } from "../../../api";
 import { Loading } from "../../Loading";
 import { TopBtn } from "../../TopBtn";
-import { Popup } from "./detail/Popup";
 import { MainBanner } from "./MainBanner";
 import { MovieContents } from "./movies/MovieContents";
 import { TvContents } from "./tvPrograms/TvContents";
@@ -111,7 +110,6 @@ export const Home = () => {
                 </>
               )}
           </Wrap>
-          <Popup />
           <TopBtn />
         </>
       )}

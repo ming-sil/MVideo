@@ -4,6 +4,9 @@ import "swiper/css";
 import { Scrollbar } from "swiper";
 import "swiper/css/scrollbar";
 import { imgUrl } from "../../../constant/constant";
+import { Link } from "react-router-dom";
+import { Popup } from "../detail/Popup";
+import { useState } from "react";
 
 const Wrap = styled.div`
   padding-left: 100px;
@@ -48,8 +51,17 @@ const Name = styled.h3`
 `;
 
 export const TvContents = ({ tvData, contentsClass }) => {
-  const openPopup = () => {
-    console.log("클릭");
+  const [bool, setBool] = useState(true);
+  const [popup, setPopup] = useState("none");
+
+  const handlePopup = () => {
+    if (bool) {
+      setPopup("block");
+      setBool(false);
+    } else if (!bool) {
+      setPopup("none");
+      setBool(true);
+    }
   };
 
   return (
@@ -64,7 +76,7 @@ export const TvContents = ({ tvData, contentsClass }) => {
       >
         {tvData.map((tvShow) => (
           <SwiperSlide key={tvShow.id}>
-            <Con onClick={openPopup}>
+            <Con onClick={handlePopup} className={tvShow.id}>
               <Poster>
                 <img src={`${imgUrl}${tvShow.poster_path}`} />
               </Poster>
@@ -73,6 +85,7 @@ export const TvContents = ({ tvData, contentsClass }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <Popup openPopup={popup} style={{ display: { setPopup } }} />
     </Wrap>
   );
 };

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { contentsApi } from "../../../../api";
 import { Loading } from "../../../Loading";
 import { TopBtn } from "../../../TopBtn";
+import { MvPopup } from "./mdetail/MvPopup";
 import { MovieContents } from "./MovieContents";
 import { MvBanner } from "./MvBanner";
 
@@ -48,7 +49,7 @@ export const Movies = () => {
     };
     contentsData();
   }, []);
-  console.log("현재상영중 영화", now);
+  // console.log("현재상영중 영화", now);
 
   return (
     <>
@@ -65,6 +66,7 @@ export const Movies = () => {
               <MovieContents mvData={mTopRated} contentsClass="높은 평점" />
             </>
           )}
+          <MvPopup />
           <TopBtn />
         </Wrap>
       )}

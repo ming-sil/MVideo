@@ -10,29 +10,32 @@ export const Popup = () => {
   const [mTrailer, setMTrailer] = useState();
   const [tvTrailer, setTvTrailer] = useState();
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
 
   useEffect(() => {
     const detailData = async () => {
-      //영화
-      const { data: mDetail } = await contentsApi.mDetail(id);
-      setMDetail(mDetail);
+      try {
+        //영화
+        const { data: mDetail } = await contentsApi.mDetail(92782);
+        setMDetail(mDetail);
 
-      const {
-        data: { results: mTrailer },
-      } = await contentsApi.mVideo(id);
-      setMTrailer(mTrailer.length === 0 ? null : mTrailer[0].key);
+        const {
+          data: { results: mTrailer },
+        } = await contentsApi.mVideo(92782);
+        setMTrailer(mTrailer.length === 0 ? null : mTrailer[0].key);
 
-      //tv
-      const { data: tvDetail } = await contentsApi.tvDetail(id);
-      setTvDetail(tvDetail);
+        //tv
+        const { data: tvDetail } = await contentsApi.tvDetail(92782);
+        setTvDetail(tvDetail);
 
-      const {
-        data: { results: tvTrailer },
-      } = await contentsApi.tvVideo(id);
-      setTvTrailer(tvTrailer.length === 0 ? null : tvTrailer[0].key);
+        const {
+          data: { results: tvTrailer },
+        } = await contentsApi.tvVideo(92782);
+        setTvTrailer(tvTrailer.length === 0 ? null : tvTrailer[0].key);
 
-      setLoading(false);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
     };
     detailData();
   }, []);
@@ -48,7 +51,7 @@ export const Popup = () => {
         <Loading />
       ) : (
         <>
-          {(mDetail || tvDetail) && (
+          {mDetail && tvDetail && (
             <DetailPopup
               mDetail={mDetail}
               mTrailer={mTrailer}
