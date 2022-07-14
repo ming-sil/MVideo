@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { contentsApi } from "../../../../api";
 import { Loading } from "../../../Loading";
+import { TopBtn } from "../../../TopBtn";
 import { MovieContents } from "./MovieContents";
 import { MvBanner } from "./MvBanner";
 
@@ -64,6 +65,7 @@ export const Movies = () => {
               <MovieContents mvData={mTopRated} contentsClass="높은 평점" />
             </>
           )}
+          <TopBtn />
         </Wrap>
       )}
     </>

@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
-import { EffectCreative } from "swiper";
+import "swiper/css/autoplay";
+import { EffectCreative, Autoplay } from "swiper";
 import styled from "styled-components";
 import { mainStyle } from "../../../../styles/GlobalStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -84,13 +85,13 @@ export const MvBanner = ({ mvData }) => {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        modules={[EffectCreative]}
+        modules={[EffectCreative, Autoplay]}
         className="mySwiper"
       >
         {mvData.map((movies) => (
           <SwiperSlide
             key={movies.id}
-            ClassName="conWrap"
+            className="conWrap"
             style={{
               width: "100%",
               height: "85vh",

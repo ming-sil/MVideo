@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
-import { EffectCreative } from "swiper";
+import "swiper/css/autoplay";
+import { EffectCreative, Autoplay } from "swiper";
 import styled from "styled-components";
 import { mainStyle } from "../../../styles/GlobalStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -84,7 +85,7 @@ export const MainBanner = ({ tvData, mvData }) => {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        modules={[EffectCreative]}
+        modules={[EffectCreative, Autoplay]}
         className="mySwiper"
       >
         <SwiperSlide

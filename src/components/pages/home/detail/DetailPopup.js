@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import styled from "styled-components";
 import { mainStyle } from "../../../../styles/GlobalStyle";
 
@@ -106,8 +108,9 @@ const BtnWrap = styled.div`
 `;
 
 const LikeBtn = styled.div`
-  width: 30px;
   svg {
+    width: 30px;
+
     stroke: ${mainStyle.mainColor};
     stroke-width: 20;
     fill: none;
@@ -261,8 +264,13 @@ export const DetailPopup = () => {
               </Overview>
               <BtnWrap>
                 <LikeBtn>
-                  <svg viewBox="0 0 512 512">
-                    <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z" />
+                  {/* <FontAwesomeIcon icon={faHeart} /> */}
+                  <svg x="0px" y="0px" viewBox="0 0 526 512">
+                    <path
+                      d="M7,190.9v-5.8c0-69.9,50.5-129.5,119.4-141c44.7-7.6,92,7.3,124.6,39.9l12,12l11.1-12c33.5-32.6,79.9-47.5,125.5-39.9
+	c68.9,11.5,119.4,71.1,119.4,141v5.8c0,41.5-17.2,81.2-47.6,109.5L290.7,469.1c-7.5,7-17.4,10.9-27.7,10.9
+	c-10.3,0-20.2-3.9-27.7-10.9L54.6,300.4C24.2,272.1,7,232.4,7,190.9L7,190.9z"
+                    />
                   </svg>
                 </LikeBtn>
                 <TrailerBtn>

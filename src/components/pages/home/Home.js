@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { contentsApi } from "../../../api";
 import { Loading } from "../../Loading";
+import { TopBtn } from "../../TopBtn";
 import { DetailPopup } from "./detail/DetailPopup";
 import { MainBanner } from "./MainBanner";
 import { MovieContents } from "./movies/MovieContents";
@@ -111,6 +112,7 @@ export const Home = () => {
               )}
           </Wrap>
           <DetailPopup />
+          <TopBtn />
         </>
       )}
     </>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { contentsApi } from "../../../../api";
 import { Loading } from "../../../Loading";
+import { TopBtn } from "../../../TopBtn";
 import { TvBanner } from "./TvBanner";
 import { TvContents } from "./TvContents";
 
@@ -58,6 +59,7 @@ export const TvPrograms = () => {
               <TvContents tvData={tvTopRated} contentsClass="높은 평점" />
             </>
           )}
+          <TopBtn />
         </Wrap>
       )}
     </>
