@@ -79,9 +79,6 @@ export const Header = () => {
           <Link to="/tvprograms">
             <Menu>TV 프로그램</Menu>
           </Link>
-          <Link to="/liked">
-            <Menu>내가 찜한 콘텐츠</Menu>
-          </Link>
         </MenuWrap>
       </LogoMenuWrap>
       <SearchWrap>

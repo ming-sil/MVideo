@@ -26,4 +26,7 @@ export const contentsApi = {
   // 예고편
   mVideo: (id) => api.get(`/movie/${id}/videos`),
   tvVideo: (id) => api.get(`/tv/${id}/videos`),
+  // 추천
+  mRecommend: (id) => api.get(`/movie/${id}/recommendations`),
+  tvRecommend: (id) => api.get(`/tv/${id}/recommendations`),
 };
