@@ -43,7 +43,7 @@ export const TvPrograms = () => {
     };
     contentsData();
   }, []);
-  console.log("방영중인 TV쇼", onAir);
+  // console.log("방영중인 TV쇼", onAir);
 
   return (
     <>

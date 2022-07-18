@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
+import { useForm } from "react-hook-form";
 import { mainStyle } from "../styles/GlobalStyle";
 
 const Wrap = styled.header`
@@ -48,6 +48,10 @@ const SearchWrap = styled.form`
     top: 50%;
     right: 10px;
     transform: translateY(-10px);
+    cursor: pointer;
+  }
+  &:hover input {
+    opacity: 1;
   }
 `;
 
@@ -58,7 +62,11 @@ const Search = styled.input`
   display: flex;
   padding: 5px 10px;
   font-size: 13px;
-  display: none;
+  opacity: 0;
+  transition: 0.3s;
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
 `;
 
 export const Header = () => {

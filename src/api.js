@@ -29,4 +29,11 @@ export const contentsApi = {
   // 추천
   mRecommend: (id) => api.get(`/movie/${id}/recommendations`),
   tvRecommend: (id) => api.get(`/tv/${id}/recommendations`),
+  // 검색
+  search: (term) =>
+    api.get("search/movie", {
+      params: {
+        query: term,
+      },
+    }),
 };
