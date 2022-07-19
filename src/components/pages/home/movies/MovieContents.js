@@ -296,7 +296,7 @@ export const MovieContents = ({ mvData, contentsClass }) => {
       setPopup("block");
       setBool(false);
       // 상세설명
-      const mNum = e.target.parentNode.parentNode.getAttribute(718789);
+      const mNum = e.target.parentNode.parentNode.getAttribute("data-num");
       const { data: mDetail } = await contentsApi.mDetail(mNum);
       setmDetail(mDetail);
       // 예고편

@@ -335,19 +335,19 @@ export const TvBanner = ({ tvData }) => {
       setPopup("block");
       setBool(false);
       // 상세설명
-      const tvNum = e.target;
-      // console.log(tvNum);
+      const tvNum = e.target.getAttribute("data-num");
+      console.log(tvNum);
       const { data: tvDetail } = await contentsApi.tvDetail(tvNum);
       setTvDetail(tvDetail);
-      // 예고편
-      // const {
-      //   data: { results: tvTrailer },
-      // } = await contentsApi.tvVideo(tvNum);
-      // setTvTrailer(tvTrailer.length === 0 ? null : tvTrailer[0].key);
-      // // 추천작
-      // const {
-      //   data: { results: tvRecommend },
-      // } = await contentsApi.tvRecommend(tvNum);
+      // 예고편;
+      const {
+        data: { results: tvTrailer },
+      } = await contentsApi.tvVideo(tvNum);
+      setTvTrailer(tvTrailer.length === 0 ? null : tvTrailer[0].key);
+      // 추천작
+      const {
+        data: { results: tvRecommend },
+      } = await contentsApi.tvRecommend(tvNum);
       setTvRecommend(tvRecommend);
       setLoading(false);
     } else if (!bool) {
