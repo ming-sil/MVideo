@@ -43,3 +43,12 @@
 
 <h4>-에디터</h4>
 <img src="https://img.shields.io/badge/VisualStudio-143?style=for-the-badge&logo=VisualStudio&logoColor=blue&color=blue&labelColor=c4c4c4">
+
+## 📝 개선해야할 점
+- 모달창 외부 클릭 시 닫힘기능
+- 찜하기 버튼 오류
+- 홈화면 메인배너 영화 및 tv 컨텐츠 함께 볼 수 있도록
+- 팝업 상세정보 -비슷한 콘텐츠 클릭 시 클릭한 콘텐츠정보로 바뀔 수 있도록
+- 모바일 반응형 -팝업 스크롤, 닫힘 오류
+- 모바일 반응형 -숨김메뉴에서 이동 후 메뉴 자동닫힘
+- 검색 -tv 및 영화 컨텐츠 함께 검색, 필터기능
