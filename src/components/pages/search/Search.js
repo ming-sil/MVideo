@@ -12,7 +12,6 @@ const SearchWrap = styled.form`
   padding: ${mainStyle.padding};
   position: relative;
   font-size: 30px;
-
   button {
     all: unset;
     position: absolute;
@@ -20,6 +19,14 @@ const SearchWrap = styled.form`
     right: 100px;
     transform: translateY(-50%);
     cursor: pointer;
+  }
+  @media screen and (max-width: 500px) {
+    margin-top: 100px;
+    margin-bottom: 60px;
+    padding: ${mainStyle.moPadding};
+    button {
+      right: 7%;
+    }
   }
 `;
 
@@ -44,6 +51,11 @@ const ConWrap = styled.div`
   row-gap: 50px;
   margin-top: 150px;
   padding: ${mainStyle.padding};
+  @media screen and (max-width: 500px) {
+    padding: ${mainStyle.moPadding};
+    margin-top: 50px;
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const WordWrap = styled.form`
@@ -52,12 +64,22 @@ const WordWrap = styled.form`
   font-size: 45px;
   color: rgba(255, 255, 255, 0.7);
   padding: ${mainStyle.padding};
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: ${mainStyle.moPadding};
+    font-size: 30px;
+    margin: 50px 0;
+  }
 `;
 
 const SearchWord = styled.h1`
   font-size: 100px;
   color: ${mainStyle.mainColor};
   margin-bottom: 30px;
+  @media screen and (max-width: 500px) {
+    font-size: 50px;
+    margin-bottom: 5px;
+  }
 `;
 
 const Con = styled.div`
@@ -66,6 +88,9 @@ const Con = styled.div`
 
 const Bg = styled.div`
   height: 300px;
+  @media screen and (max-width: 500px) {
+    height: 200px;
+  }
 `;
 
 const Title = styled.h3`
@@ -114,9 +139,9 @@ export const Search = () => {
     }
   };
   // console.log(errors);
+  const inputValue = document.querySelector("input").value;
 
   console.log(searchTerm);
-  const inputValue = document.querySelector("input").value;
 
   return (
     <>
