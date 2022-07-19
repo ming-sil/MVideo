@@ -13,6 +13,9 @@ import { mainStyle } from "../../../../styles/GlobalStyle";
 const Wrap = styled.div`
   padding-left: 100px;
   margin: 15px 0;
+  @media screen and (max-width: 500px) {
+    padding-left: 30px;
+  }
 `;
 
 const Title = styled.div`
@@ -20,16 +23,23 @@ const Title = styled.div`
   font-weight: 600;
   margin-bottom: 20px;
   margin-top: 90px;
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
 `;
 
 const Con = styled.div`
   cursor: pointer;
-
   margin-bottom: 20px;
   &:hover {
     img {
       width: 110%;
     }
+  }
+  @media screen and (max-width: 500px) {
+    margin-bottom: 10px;
   }
 `;
 
@@ -43,6 +53,9 @@ const Poster = styled.div`
   img {
     width: 100%;
     transition: 0.3s;
+  }
+  @media screen and (max-width: 500px) {
+    height: 40vh;
   }
 `;
 
@@ -343,16 +356,24 @@ export const MovieContents = ({ mvData, contentsClass }) => {
     });
   };
 
+  const params = {
+    breakpoints: {
+      320: {
+        slidesPerView: 2.2,
+        spaceBetween: 10,
+      },
+      640: {
+        slidesPerView: 7.3,
+        spaceBetween: 15,
+      },
+    },
+  };
+
   return (
     <Wrap>
       <Title>{contentsClass}</Title>
 
-      <Swiper
-        modules={[Scrollbar]}
-        scrollbar={{ draggable: true }}
-        spaceBetween={15}
-        slidesPerView={7.3}
-      >
+      <Swiper modules={[Scrollbar]} scrollbar={{ draggable: true }} {...params}>
         {mvData &&
           mvData.map((movie) => (
             <SwiperSlide key={movie.id}>

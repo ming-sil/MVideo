@@ -2,16 +2,17 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 export const mainStyle = {
-    bgColor: "#1d1d1d",
-    highlightColor: "#ff9900",
-    padding: "0 100px",
-    mainColor: "white",
-    btnHeight: "60px",
-    btnRadius: "10px",
-    btnPadding: "0 30px",
-    btnFontSize: "20px",
-    btnFontWeight: "600"
-}
+  bgColor: "#1d1d1d",
+  highlightColor: "#ff9900",
+  padding: "0 100px",
+  mainColor: "white",
+  btnHeight: "60px",
+  btnRadius: "10px",
+  btnPadding: "0 30px",
+  btnFontSize: "20px",
+  btnFontWeight: "600",
+  moPadding: "0 30px",
+};
 
 export const GlobalStyled = createGlobalStyle`
     ${reset}
@@ -36,4 +37,4 @@ export const GlobalStyled = createGlobalStyle`
     img{
         width: 100%;
     }
-`
+`;

@@ -16,6 +16,10 @@ const Wrap = styled.header`
   top: 0;
   left: 0;
   z-index: 999;
+  @media screen and (max-width: 500px) {
+    padding: ${mainStyle.moPadding};
+    height: 60px;
+  }
 `;
 
 const LogoMenuWrap = styled.div`

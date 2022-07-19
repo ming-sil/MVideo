@@ -32,18 +32,29 @@ const TextWrap = styled.div`
   margin-top: 100px;
   position: absolute;
   z-index: 99;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: ${mainStyle.moPadding};
+  }
 `;
 
 const Title = styled.h1`
   font-size: 80px;
   font-weight: 600;
   margin-bottom: 30px;
+  @media screen and (max-width: 500px) {
+    font-size: 50px;
+  }
 `;
 
 const Desc = styled.p`
   font-size: 20px;
   font-weight: 100;
   margin-bottom: 50px;
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
 `;
 
 const IconWrap = styled.div`
