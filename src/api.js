@@ -30,8 +30,14 @@ export const contentsApi = {
   mRecommend: (id) => api.get(`/movie/${id}/recommendations`),
   tvRecommend: (id) => api.get(`/tv/${id}/recommendations`),
   // 검색
-  search: (term) =>
-    api.get("search/movie", {
+  msearch: (term) =>
+    api.get("/search/movie", {
+      params: {
+        query: term,
+      },
+    }),
+  tvsearch: (term) =>
+    api.get("/search/tv", {
       params: {
         query: term,
       },

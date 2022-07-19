@@ -17,7 +17,7 @@ const Wrap = styled.header`
   left: 0;
   z-index: 999;
   background-color: ${(props) => props.bgColor};
-
+  transition: 0.3s;
   @media screen and (max-width: 500px) {
     padding: ${mainStyle.moPadding};
   }
@@ -118,7 +118,7 @@ export const Header = () => {
 
   const handleScroll = () => {
     const sct = window.pageYOffset;
-    if (300 < sct) {
+    if (100 < sct) {
       setBg("#1d1d1d");
     } else {
       setBg("transparent");
