@@ -13,6 +13,8 @@ const Wrap = styled.header`
   align-items: center;
   padding: ${mainStyle.padding};
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 999;
 `;
 

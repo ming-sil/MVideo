@@ -335,18 +335,19 @@ export const TvBanner = ({ tvData }) => {
       setPopup("block");
       setBool(false);
       // 상세설명
-      const tvNum = e.target.parentNode.parentNode.getAttribute("data-num");
+      const tvNum = e.target;
+      // console.log(tvNum);
       const { data: tvDetail } = await contentsApi.tvDetail(tvNum);
       setTvDetail(tvDetail);
       // 예고편
-      const {
-        data: { results: tvTrailer },
-      } = await contentsApi.tvVideo(tvNum);
-      setTvTrailer(tvTrailer.length === 0 ? null : tvTrailer[0].key);
-      // 추천작
-      const {
-        data: { results: tvRecommend },
-      } = await contentsApi.tvRecommend(tvNum);
+      // const {
+      //   data: { results: tvTrailer },
+      // } = await contentsApi.tvVideo(tvNum);
+      // setTvTrailer(tvTrailer.length === 0 ? null : tvTrailer[0].key);
+      // // 추천작
+      // const {
+      //   data: { results: tvRecommend },
+      // } = await contentsApi.tvRecommend(tvNum);
       setTvRecommend(tvRecommend);
       setLoading(false);
     } else if (!bool) {
@@ -432,8 +433,8 @@ export const TvBanner = ({ tvData }) => {
                   className={tvShow.id}
                   data-num={tvShow.id}
                 >
-                  <FontAwesomeIcon icon={faCircleInfo} />
-                  <span>상세정보 보기</span>
+                  <FontAwesomeIcon icon={faCircleInfo} data-num={tvShow.id} />
+                  <span data-num={tvShow.id}>상세정보 보기</span>
                 </Info>
                 <Like fill={likeBtn} onClick={like}>
                   <svg x="0px" y="0px" viewBox="0 0 526 512">

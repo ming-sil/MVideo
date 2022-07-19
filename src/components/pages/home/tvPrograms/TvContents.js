@@ -117,6 +117,7 @@ const TextWrap = styled.div`
 `;
 
 const TitleWrap = styled.div`
+  width: 600px;
   position: absolute;
   top: 0;
   left: 0;

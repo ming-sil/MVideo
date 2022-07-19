@@ -117,6 +117,7 @@ const TextWrap = styled.div`
 `;
 
 const TitleWrap = styled.div`
+  width: 600px;
   position: absolute;
   top: 0;
   left: 0;
@@ -295,7 +296,7 @@ export const MovieContents = ({ mvData, contentsClass }) => {
       setPopup("block");
       setBool(false);
       // 상세설명
-      const mNum = e.target.parentNode.parentNode.getAttribute("data-num");
+      const mNum = e.target.parentNode.parentNode.getAttribute(718789);
       const { data: mDetail } = await contentsApi.mDetail(mNum);
       setmDetail(mDetail);
       // 예고편
@@ -314,9 +315,9 @@ export const MovieContents = ({ mvData, contentsClass }) => {
       setBool(true);
     }
   };
-  console.log("상세정보 :" + mDetail);
-  console.log("예고편 :" + mTrailer);
-  console.log("추천작 :" + mRecommend);
+  // console.log("상세정보 :" + mDetail);
+  // console.log("예고편 :" + mTrailer);
+  // console.log("추천작 :" + mRecommend);
 
   const exit = () => {
     setPopup("none");
@@ -369,7 +370,9 @@ export const MovieContents = ({ mvData, contentsClass }) => {
           ))}
       </Swiper>
       {loading ? (
-        <Loading />
+        <>
+          <Loading />
+        </>
       ) : (
         <>
           {mDetail && (
