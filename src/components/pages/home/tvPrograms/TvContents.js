@@ -334,6 +334,7 @@ export const TvContents = ({ tvData, contentsClass }) => {
   };
 
   const goToTrailer = () => {
+    console.log(777);
     const position = document.querySelector(".popUp");
     const trailerPosition = document.querySelector(".trailerPosition");
     position.scrollTo({
@@ -341,6 +342,9 @@ export const TvContents = ({ tvData, contentsClass }) => {
       left: 0,
       behavior: "smooth",
     });
+    // setTimeout(() => {
+    //   console.log(trailerPosition.offsetTop);
+    // }, 500);
   };
 
   return (
@@ -418,7 +422,7 @@ c-10.3,0-20.2-3.9-27.7-10.9L54.6,300.4C24.2,272.1,7,232.4,7,190.9L7,190.9z"
                               <svg viewBox="0 0 384 512">
                                 <path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z" />
                               </svg>
-                              예고편 재생
+                              예고편 재생8
                             </TrailerBtn>
                           ) : null}
                         </BtnWrap>

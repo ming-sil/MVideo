@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { mainStyle } from "../../../../styles/GlobalStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
-import { imgUrl } from "../../../constant/constant";
+import { bannerimgUrl, imgUrl } from "../../../constant/constant";
 import { useState } from "react";
 import { Loading } from "../../../Loading";
 import { contentsApi } from "../../../../api";
@@ -419,7 +419,7 @@ export const TvBanner = ({ tvData }) => {
               alignItems: "center",
               background: `url(${
                 tvShow.backdrop_path
-                  ? `${imgUrl}${tvShow.backdrop_path}`
+                  ? `${bannerimgUrl}${tvShow.backdrop_path}`
                   : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
               }) no-repeat center / cover`,
             }}

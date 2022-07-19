@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { mainStyle } from "../../../../styles/GlobalStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
-import { imgUrl } from "../../../constant/constant";
+import { bannerimgUrl, imgUrl } from "../../../constant/constant";
 import { useState } from "react";
 
 const Wrap = styled.div`
@@ -143,7 +143,7 @@ export const MvBanner = ({ mvData }) => {
               alignItems: "center",
               background: `url(${
                 movies.backdrop_path
-                  ? `${imgUrl}${movies.backdrop_path}`
+                  ? `${bannerimgUrl}${movies.backdrop_path}`
                   : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
               }) no-repeat center / cover`,
             }}
