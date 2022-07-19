@@ -16,6 +16,17 @@ const Wrap = styled.div`
   width: 100%;
 `;
 
+const ConWrap = styled.div`
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    height: 100vh;
+    align-items: flex-end;
+  }
+`;
+
 const GradientBg = styled.div`
   width: 100%;
   height: 100%;
@@ -34,18 +45,30 @@ const TextWrap = styled.div`
   margin-top: 100px;
   position: absolute;
   z-index: 99;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: ${mainStyle.moPadding};
+    margin-bottom: 15vh;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 80px;
   font-weight: 600;
   margin-bottom: 30px;
+  @media screen and (max-width: 500px) {
+    font-size: 50px;
+  }
 `;
 
 const Desc = styled.p`
   font-size: 20px;
   font-weight: 100;
   margin-bottom: 50px;
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
 `;
 
 const IconWrap = styled.div`
@@ -115,6 +138,9 @@ const PopupWrap = styled.div`
   transform: translateX(-50%);
   z-index: 998;
   overflow-y: scroll;
+  @media screen and (max-width: 500px) {
+    width: 95%;
+  }
 `;
 
 const Container = styled.div`
@@ -125,6 +151,11 @@ const Container = styled.div`
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
+  @media screen and (max-width: 500px) {
+    border-radius: 30px;
+    margin: 60px 0;
+    padding: 60px 0;
+  }
 `;
 
 const ExitBtn = styled.div`
@@ -143,6 +174,10 @@ const ExitBtn = styled.div`
     svg {
       fill: ${mainStyle.highlightColor};
     }
+  }
+  @media screen and (max-width: 500px) {
+    top: 20px;
+    right: 20px;
   }
 `;
 
@@ -409,46 +444,42 @@ export const TvBanner = ({ tvData }) => {
         className="mySwiper"
       >
         {tvData.map((tvShow) => (
-          <SwiperSlide
-            key={tvShow.id}
-            className="conWrap"
-            style={{
-              width: "100%",
-              height: "85vh",
-              display: "flex",
-              alignItems: "center",
-              background: `url(${
-                tvShow.backdrop_path
-                  ? `${bannerimgUrl}${tvShow.backdrop_path}`
-                  : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
-              }) no-repeat center / cover`,
-            }}
-          >
-            <TextWrap>
-              <Title>{tvShow.name}</Title>
-              <Desc>{tvShow.overview.slice(0, 150) + "..."}</Desc>
-              <IconWrap>
-                <Info
-                  onClick={handlePopup}
-                  className={tvShow.id}
-                  data-num={tvShow.id}
-                >
-                  <FontAwesomeIcon icon={faCircleInfo} data-num={tvShow.id} />
-                  <span data-num={tvShow.id}>상세정보 보기</span>
-                </Info>
-                <Like fill={likeBtn} onClick={like}>
-                  <svg x="0px" y="0px" viewBox="0 0 526 512">
-                    <path
-                      d="M7,190.9v-5.8c0-69.9,50.5-129.5,119.4-141c44.7-7.6,92,7.3,124.6,39.9l12,12l11.1-12c33.5-32.6,79.9-47.5,125.5-39.9
+          <SwiperSlide key={tvShow.id}>
+            <ConWrap
+              style={{
+                background: `url(${
+                  tvShow.backdrop_path
+                    ? `${bannerimgUrl}${tvShow.backdrop_path}`
+                    : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
+                }) no-repeat center / cover`,
+              }}
+            >
+              <TextWrap>
+                <Title>{tvShow.name}</Title>
+                <Desc>{tvShow.overview.slice(0, 150) + "..."}</Desc>
+                <IconWrap>
+                  <Info
+                    onClick={handlePopup}
+                    className={tvShow.id}
+                    data-num={tvShow.id}
+                  >
+                    <FontAwesomeIcon icon={faCircleInfo} data-num={tvShow.id} />
+                    <span data-num={tvShow.id}>상세정보 보기</span>
+                  </Info>
+                  <Like fill={likeBtn} onClick={like}>
+                    <svg x="0px" y="0px" viewBox="0 0 526 512">
+                      <path
+                        d="M7,190.9v-5.8c0-69.9,50.5-129.5,119.4-141c44.7-7.6,92,7.3,124.6,39.9l12,12l11.1-12c33.5-32.6,79.9-47.5,125.5-39.9
 c68.9,11.5,119.4,71.1,119.4,141v5.8c0,41.5-17.2,81.2-47.6,109.5L290.7,469.1c-7.5,7-17.4,10.9-27.7,10.9
 c-10.3,0-20.2-3.9-27.7-10.9L54.6,300.4C24.2,272.1,7,232.4,7,190.9L7,190.9z"
-                    />
-                  </svg>
-                  찜하기
-                </Like>
-              </IconWrap>
-            </TextWrap>
-            <GradientBg />
+                      />
+                    </svg>
+                    찜하기
+                  </Like>
+                </IconWrap>
+              </TextWrap>
+              <GradientBg />
+            </ConWrap>
           </SwiperSlide>
         ))}
       </Swiper>
