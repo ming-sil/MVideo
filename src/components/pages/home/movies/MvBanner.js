@@ -85,11 +85,11 @@ const Info = styled.div`
   align-items: center;
   border-radius: ${mainStyle.btnRadius};
   cursor: pointer;
+  margin-right: 20px;
+  transition: 0.3s;
   svg {
     margin-right: 10px;
   }
-  margin-right: 20px;
-  transition: 0.3s;
   &:hover {
     background-color: white;
     color: ${mainStyle.highlightColor};
@@ -140,6 +140,7 @@ const PopupWrap = styled.div`
   overflow-y: scroll;
   @media screen and (max-width: 500px) {
     width: 95%;
+    // position: relative;
   }
 `;
 
@@ -152,9 +153,11 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   @media screen and (max-width: 500px) {
+    position: relative;
     border-radius: 30px;
     margin: 60px 0;
     padding: 60px 0;
+    overflow: hidden;
   }
 `;
 
@@ -185,12 +188,19 @@ const Section1 = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
 `;
 
 const TextWrap2 = styled.div`
   width: 50%;
   position: relative;
   padding-left: 60px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: 20px 15px;
+  }
 `;
 
 const TitleWrap = styled.div`
@@ -199,6 +209,11 @@ const TitleWrap = styled.div`
   left: 0;
   transform: translateX(60px);
   z-index: 99;
+  @media screen and (max-width: 500px) {
+    position: relative;
+    transform: translate(0);
+    margin-top: 200px;
+  }
 `;
 
 const ShowName = styled.div`
@@ -209,15 +224,28 @@ const ShowName = styled.div`
     font-size: 35px;
   }
   margin-bottom: 5px;
+  @media screen and (max-width: 500px) {
+    font-size: 35px;
+    line-height: 40px;
+    span {
+      font-size: 20px;
+    }
+  }
 `;
 
 const Tagline = styled.div`
   font-size: 25px;
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
 
 const DescWrap = styled.div`
   margin-top: 210px;
   width: 100%;
+  @media screen and (max-width: 500px) {
+    margin-top: 30px;
+  }
 `;
 
 const Genres = styled.div`
@@ -294,6 +322,13 @@ const TrailerBtn = styled.div`
 const ImgWrap = styled.div`
   width: 100%;
   position: relative;
+  @media screen and (max-width: 500px) {
+    width: 120%;
+    position: absolute;
+    top: -60px;
+    left: 8px;
+    height: 40vh;
+  }
 `;
 
 const MainImg = styled.div`
@@ -304,21 +339,33 @@ const MainImg = styled.div`
   height: 100%;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.5);
+  @media screen and (max-width: 500px) {
+    border-radius: 0;
+  }
 `;
 
 const Section2 = styled.div`
   margin-top: 200px;
   margin-bottom: 150px;
+  @media screen and (max-width: 500px) {
+    margin: 50px 0;
+  }
 `;
 
 const Trailer = styled.iframe`
   width: 100%;
   height: 80vh;
   background-color: gray;
+  @media screen and (max-width: 500px) {
+    height: 50vh;
+  }
 `;
 
 const Section3 = styled.div`
   padding: 0 60px;
+  @media screen and (max-width: 500px) {
+    padding: 0 15px;
+  }
 `;
 
 const Recommended = styled.div`
@@ -339,6 +386,10 @@ const RecommendedContents = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25%, auto));
   row-gap: 80px;
+  @media screen and (max-width: 500px) {
+    grid-template-columns: repeat(auto-fill, minmax(33%, auto));
+    row-gap: 25px;
+  }
 `;
 
 const RecCon = styled.div`
@@ -348,6 +399,9 @@ const RecCon = styled.div`
 const RecImg = styled.div`
   width: 100%;
   height: 400px;
+  @media screen and (max-width: 500px) {
+    height: 180px;
+  }
 `;
 
 const RecTitle = styled.h3`
@@ -453,7 +507,11 @@ export const MvBanner = ({ mvData }) => {
             >
               <TextWrap>
                 <Title>{movies.title}</Title>
-                <Desc>{movies.overview.slice(0, 150) + "..."}</Desc>
+                <Desc>
+                  {movies.overview
+                    ? movies.overview.slice(0, 150) + "..."
+                    : null}
+                </Desc>
                 <IconWrap>
                   <Info onClick={handlePopup} data-num={movies.id}>
                     <FontAwesomeIcon icon={faCircleInfo} data-num={movies.id} />
@@ -506,7 +564,10 @@ export const MvBanner = ({ mvData }) => {
                           ))}
                         </Genres>
                         <Runtime>⏱ {mDetail.runtime}분</Runtime>
-                        <Overview>{mDetail.overview}</Overview>
+                        <Overview>
+                          {" "}
+                          {mDetail.overview ? mDetail.overview : null}
+                        </Overview>
                         <BtnWrap>
                           <LikeBtn fill={likeBtn} onClick={like}>
                             <svg x="0px" y="0px" viewBox="0 0 526 512">

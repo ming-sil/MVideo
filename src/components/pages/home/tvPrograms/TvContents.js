@@ -86,6 +86,10 @@ const PopupWrap = styled.div`
   transform: translateX(-50%);
   z-index: 998;
   overflow-y: scroll;
+  @media screen and (max-width: 500px) {
+    width: 95%;
+    // position: relative;
+  }
 `;
 
 const Container = styled.div`
@@ -96,6 +100,13 @@ const Container = styled.div`
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
+  @media screen and (max-width: 500px) {
+    position: relative;
+    border-radius: 30px;
+    margin: 60px 0;
+    padding: 60px 0;
+    overflow: hidden;
+  }
 `;
 
 const ExitBtn = styled.div`
@@ -115,18 +126,29 @@ const ExitBtn = styled.div`
       fill: ${mainStyle.highlightColor};
     }
   }
+  @media screen and (max-width: 500px) {
+    top: 20px;
+    right: 20px;
+  }
 `;
 
 const Section1 = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
 `;
 
 const TextWrap = styled.div`
   width: 50%;
   position: relative;
   padding-left: 60px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: 20px 15px;
+  }
 `;
 
 const TitleWrap = styled.div`
@@ -136,6 +158,11 @@ const TitleWrap = styled.div`
   left: 0;
   transform: translateX(60px);
   z-index: 99;
+  @media screen and (max-width: 500px) {
+    position: relative;
+    transform: translate(0);
+    margin-top: 200px;
+  }
 `;
 
 const ShowName = styled.div`
@@ -146,15 +173,28 @@ const ShowName = styled.div`
     font-size: 35px;
   }
   margin-bottom: 5px;
+  @media screen and (max-width: 500px) {
+    font-size: 35px;
+    line-height: 40px;
+    span {
+      font-size: 20px;
+    }
+  }
 `;
 
 const Tagline = styled.div`
   font-size: 25px;
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
 
 const DescWrap = styled.div`
   margin-top: 210px;
   width: 100%;
+  @media screen and (max-width: 500px) {
+    margin-top: 30px;
+  }
 `;
 
 const Genres = styled.div`
@@ -231,6 +271,13 @@ const TrailerBtn = styled.div`
 const ImgWrap = styled.div`
   width: 100%;
   position: relative;
+  @media screen and (max-width: 500px) {
+    width: 120%;
+    position: absolute;
+    top: -60px;
+    left: 8px;
+    height: 40vh;
+  }
 `;
 
 const MainImg = styled.div`
@@ -241,21 +288,33 @@ const MainImg = styled.div`
   height: 100%;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.5);
+  @media screen and (max-width: 500px) {
+    border-radius: 0;
+  }
 `;
 
 const Section2 = styled.div`
   margin-top: 200px;
   margin-bottom: 150px;
+  @media screen and (max-width: 500px) {
+    margin: 50px 0;
+  }
 `;
 
 const Trailer = styled.iframe`
   width: 100%;
   height: 80vh;
   background-color: gray;
+  @media screen and (max-width: 500px) {
+    height: 50vh;
+  }
 `;
 
 const Section3 = styled.div`
   padding: 0 60px;
+  @media screen and (max-width: 500px) {
+    padding: 0 15px;
+  }
 `;
 
 const Recommended = styled.div`
@@ -276,6 +335,10 @@ const RecommendedContents = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25%, auto));
   row-gap: 80px;
+  @media screen and (max-width: 500px) {
+    grid-template-columns: repeat(auto-fill, minmax(33%, auto));
+    row-gap: 25px;
+  }
 `;
 
 const RecCon = styled.div`
@@ -285,6 +348,9 @@ const RecCon = styled.div`
 const RecImg = styled.div`
   width: 100%;
   height: 400px;
+  @media screen and (max-width: 500px) {
+    height: 180px;
+  }
 `;
 
 const RecTitle = styled.h3`
@@ -427,7 +493,9 @@ export const TvContents = ({ tvData, contentsClass }) => {
                           시즌{tvDetail.number_of_seasons} 개 |{" "}
                           {tvDetail.number_of_episodes}개 에피소드
                         </Runtime>
-                        <Overview>{tvDetail.overview}</Overview>
+                        <Overview>
+                          {tvDetail.overview ? tvDetail.overview : null}
+                        </Overview>
                         <BtnWrap>
                           <LikeBtn fill={likeBtn} onClick={like}>
                             <svg x="0px" y="0px" viewBox="0 0 526 512">
@@ -443,7 +511,7 @@ c-10.3,0-20.2-3.9-27.7-10.9L54.6,300.4C24.2,272.1,7,232.4,7,190.9L7,190.9z"
                               <svg viewBox="0 0 384 512">
                                 <path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z" />
                               </svg>
-                              예고편 재생8
+                              예고편 재생
                             </TrailerBtn>
                           ) : null}
                         </BtnWrap>
