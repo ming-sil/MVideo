@@ -139,7 +139,7 @@ export const Search = () => {
     }
   };
   // console.log(errors);
-  const inputValue = document.querySelector("input").value;
+  // const inputValue = document.querySelector("input").value;
 
   console.log(searchTerm);
 
@@ -167,7 +167,8 @@ export const Search = () => {
           {searchTerm && (
             <>
               <WordWrap>
-                <SearchWord>{inputValue}</SearchWord>에 대한 검색 결과입니다.
+                <SearchWord>"{"inputValue"}"</SearchWord>에 대한 검색
+                결과입니다.
               </WordWrap>
 
               <ConWrap>
