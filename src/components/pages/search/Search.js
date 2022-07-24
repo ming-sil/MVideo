@@ -140,8 +140,9 @@ export const Search = () => {
   };
   // console.log(errors);
   // const inputValue = document.querySelector("input").value;
+  const { search: term } = getValues();
 
-  console.log(searchTerm);
+  console.log(getValues().search);
 
   return (
     <>
@@ -167,7 +168,7 @@ export const Search = () => {
           {searchTerm && (
             <>
               <WordWrap>
-                <SearchWord>"{"inputValue"}"</SearchWord>에 대한 검색
+                <SearchWord>"{getValues().search}"</SearchWord>에 대한 검색
                 결과입니다.
               </WordWrap>
 
