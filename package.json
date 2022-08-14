@@ -27,8 +27,7 @@
     "styled-components": "^5.3.5",
     "styled-reset": "^4.4.2",
     "swiper": "^8.3.0",
-    "web-vitals": "^2.1.4",
-    "homepage": "http://ming-sil.github.io/MVideo"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,6 +37,7 @@
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build"
   },
+  "homepage": "http://ming-sil.github.io/MVideo",
   "eslintConfig": {
     "extends": [
       "react-app",
